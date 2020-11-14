@@ -1,0 +1,1 @@
+Ezen oldalon Ukrajna Egészségügyi Minisztériumának számítási rendszere szerint mindenki kiszámolhatja maga az aktuális mérőszámokat, amelyek alapján minden pénteken az országok színek szerinti besorolása történik ("Országok aktuális besorolása" menüpont). A "Várható jövő heti besorolás" menüpont alatt egy nagyon primitív módon kiszámolt jósolt számérték alapján 

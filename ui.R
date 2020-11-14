@@ -1,14 +1,16 @@
 library(shiny)
 library(ggplot2)
 
-navbarPage("Current and predicted next week-classification of countries by UA Ministry of Health based on COVID-19 case numbers",
-           tabPanel("Latest classification",
+navbarPage("Ukrajna jelenlegi és jövő hétre várható ország-besorolásai az új COVID-19 esetszámok alapján",
+           tabPanel("Kezdőlap",
+                    fluidRow(h1("Kezdőlap"), readLines("main_readme.txt"))),
+           tabPanel("Országok aktuális besorolása",
                     sidebarLayout(position = "left",
-                                  sidebarPanel(dateInput("origin_date", label = "Date of origin"),),
+                                  sidebarPanel(dateInput("origin_date", label = "Számítás kiindulási napja")),
                                   mainPanel(dataTableOutput('latest_classification_df')))
             ),
-           tabPanel("Next classification", 
+           tabPanel("Várható jövő heti besorolás", 
                     sidebarLayout(position = "left",
-                                  sidebarPanel(numericInput("n_pred_days", label = "Number of latest days to use during prediction", value = 7)),
+                                  sidebarPanel(numericInput("n_pred_days", label = "A kiszámításhoz figyelembe vett elmúlt napok száma", value = 7)),
                                   mainPanel(dataTableOutput('next_classification_df'))))
 )

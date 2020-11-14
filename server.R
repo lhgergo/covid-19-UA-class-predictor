@@ -8,7 +8,7 @@ function(input, output) {
     date_today <- Sys.time() %>% substr(1, 10) %>% as.Date()
     
     # loading data ---------
-    coviddf <- read.csv(current_filename, stringsAsFactors = FALSE)
+    coviddf <- read.csv("https://covid19.who.int/WHO-COVID-19-global-data.csv", stringsAsFactors = FALSE)
     popdf <- read.csv("data/population_data.csv", stringsAsFactors = FALSE) # https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#
     populations <- popdf$X2019..YR2019. %>% as.numeric() %>% set_names(popdf$Country.Name)
     populations <- populations[!is.na(populations)]
@@ -56,7 +56,7 @@ function(input, output) {
         days_of_prediction <- seq((origin_date-input$n_pred_days), (origin_date), by = "day")
         next_days <- seq(origin_date+1, next_recategorization_date, by = "day")
         
-        pbsapply(mutual_countries, function(cntry) {
+        sapply(mutual_countries, function(cntry) {
             tmpdf <- coviddf[coviddf$Country == cntry, ]
             tmpdf_pred <- tmpdf[tmpdf$Date_reported %in% days_of_prediction, ]
             mdl <- lm(New_cases ~ Date_reported, tmpdf_pred)
