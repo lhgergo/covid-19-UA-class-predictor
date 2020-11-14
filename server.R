@@ -8,8 +8,8 @@ function(input, output) {
     date_today <- Sys.time() %>% substr(1, 10) %>% as.Date()
     
     # loading data ---------
-    coviddf <- read.csv("https://covid19.who.int/WHO-COVID-19-global-data.csv", stringsAsFactors = FALSE)
-    popdf <- read.csv("data/population_data.csv", stringsAsFactors = FALSE) # https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#
+    coviddf <- read.csv("https://covid19.who.int/WHO-COVID-19-global-data.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
+    popdf <- read.csv("https://raw.githubusercontent.com/lhgergo/covid-19-UA-class-predictor/main/data/population_data.csv", stringsAsFactors = FALSE, encoding = "UTF-8") # https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#
     populations <- popdf$X2019..YR2019. %>% as.numeric() %>% set_names(popdf$Country.Name)
     populations <- populations[!is.na(populations)]
     mutual_countries <- intersect(names(populations), coviddf$Country)
@@ -17,12 +17,7 @@ function(input, output) {
     populations <- populations[mutual_countries]
     coviddf <- coviddf[coviddf$Country %in% mutual_countries, ]
     coviddf$Date_reported %<>% as.Date
-    
-    # translating country names to Hungarian ---------
-    # cntrys <- read.csv("data/countries.csv", stringsAsFactors = F)# https://stefangabos.github.io/world_countries/
-    # cntrys <- cntrys$hun %>% set_names(cntrys$eng)
-    # names(populations) <- cntrys[names(populations)]
-    
+
     # running analysis for lastest day of classification ----------
     # might be a bit different from the ones on moz.gov.ua, probably because they got population count data from somewhere else
     # reactive({output$latest_classification_df <- renderDataTable(tmpfunc(input$origin_date))})
@@ -43,9 +38,6 @@ function(input, output) {
             datatable(rownames= FALSE, options = list(pageLength = length(mutual_countries), language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Hungarian.json'))) %>%
             formatStyle("classification", target = "row", backgroundColor = styleEqual(c("red", "green"), c('#F71405', '#05F766')))
     })
-   
-
-    
 
     # # calculating probable case numbers based on next recategorization based on the trends in the last 28 days ----------
     output$next_classification_df <- renderDataTable({
