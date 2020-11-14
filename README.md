@@ -11,6 +11,7 @@ A "Várható jövő heti besorolás" menüpont alatt egyelőre egy egyszerű lin
 # Hiányzó funkciók
 * magyar és ukrán nyelvű országnevek
 * 30%-nál nagyobb új esetszám-emelkedést mutató országokat egyelőre nem jelöltem vörösnek
+* kifinomultabb módszer a következő napok esetszámainak becsléséhez
 
 # Források
 * napi új esetszámok a WHO oldaláról: https://covid19.who.int/WHO-COVID-19-global-data.csv
