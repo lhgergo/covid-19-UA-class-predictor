@@ -12,7 +12,7 @@ date_today <- Sys.time() %>% substr(1, 10) %>% as.Date()
 
 # loading data ---------
 coviddf <- read.csv(current_filename, stringsAsFactors = FALSE)
-popdf <- read.csv("data/population_data.csv", stringsAsFactors = FALSE) # https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#
+popdf <- read.csv("https://raw.githubusercontent.com/lhgergo/covid-19-UA-class-predictor/main/data/population_data.csv", stringsAsFactors = FALSE) # https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#
 populations <- popdf$X2019..YR2019. %>% as.numeric() %>% set_names(popdf$Country.Name)
 populations <- populations[!is.na(populations)]
 mutual_countries <- intersect(names(populations), coviddf$Country)
