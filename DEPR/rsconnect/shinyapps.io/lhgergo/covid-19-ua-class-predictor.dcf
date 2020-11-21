@@ -1,0 +1,13 @@
+name: covid-19-ua-class-predictor
+title:
+username:
+account: lhgergo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3232687
+bundleId: 3860698
+url: https://lhgergo.shinyapps.io/covid-19-ua-class-predictor/
+when: 1605376947.63496
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: calculator_who.R|LICENSE|README.md|data/countries.csv|data/population_data.csv|data/WHO-COVID-19-global-data-2020-11-13.csv|data/WHO-COVID-19-global-data-2020-11-14.csv
