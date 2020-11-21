@@ -5,8 +5,8 @@ Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszám
 `((elmúlt 14 nap új esetei összesen)/(ország lakossága))*100000`
 
 # A legfrissebb napi jelentések
-* [2020-11-20](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/2020-11-20/report.md)
-* [2020-11-14](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/2020-11-14/report.md)
+* [2020-11-20](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/data/2020-11-20/report.md)
+* [2020-11-14](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/data/2020-11-14/report.md)
 
 # További linkek
 * A legfrissebb (2020. november 20.) hivatalos mérőszámok és ország-besorolások az Egészségügyi Minisztérium weboldaláról
