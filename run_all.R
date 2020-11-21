@@ -12,5 +12,3 @@ source("collect_current_data.R")
 
 # updating main page ----------
 source("update_main.R")
-
-# pushing everything back to github ----------
