@@ -1,17 +1,15 @@
-# Intro
-Az itt található kód fut a https://lhgergo.shinyapps.io/covid-19-ua-class-predictor/ webhelyen.
+# Bevezető
+Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszámokat felhasználva számolom ki a napi aktuális mérőszámokat, amelyek alapján [Ukrajna Egészségügyi Minisztériuma](https://moz.gov.ua/) minden pénteken az országok besorolását végzi. A táblázatban szereplő értékek minimális mértékben eltérhetnek a hivatalosan közöltektől (a Minisztérium valószínűleg más forrást használ a lakosságszám meghatározásához).
 
-Ezen oldalon Ukrajna Egészségügyi Minisztériumának számítási rendszere szerint mindenki kiszámolhatja az aktuális napi mérőszámokat, amelyek alapján minden pénteken az országok színek szerinti besorolása történik ("Országok aktuális besorolása" menüpont). A táblázatban szereplő értékek minimális mértékben eltérhetnek a hivatalosan közöltektől (a Minisztérium valószínűleg más forrást használ a lakosságszám meghatározásához).
-
-A "Várható jövő heti besorolás" menüpont alatt egyelőre egy egyszerű lineáris modell alapján számolt jósolt számérték látható minden országra, nagyjából előrevetítve a következő pénteki helyzetet. Itt beállítható, hogy az elmúlt hány napot vegye figyelembe az algoritmus az előrejelzés megalkotásához.
-
-# A besorolás alapját képező érték kiszámítás módja
+# Az osztályozás alapjául szolgáló képlet
 `((elmúlt 14 nap új esetei összesen)/(ország lakossága))*100000`
 
-# Hiányzó funkciók
-* magyar és ukrán nyelvű országnevek
-* 30%-nál nagyobb új esetszám-emelkedést mutató országokat egyelőre nem jelöltem vörösnek
-* kifinomultabb módszer a következő napok esetszámainak becsléséhez
+# A legfrissebb napi jelentések
+* [2020-11-20](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/2020-11-20/report.md)
+* [2020-11-14](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/2020-11-14/report.md)
+
+# További linkek
+* A legfrissebb (2020. november 20.) hivatalos mérőszámok és ország-besorolások az Egészségügyi Minisztérium weboldaláról
 
 # Források
 * napi új esetszámok a WHO oldaláról: https://covid19.who.int/WHO-COVID-19-global-data.csv
