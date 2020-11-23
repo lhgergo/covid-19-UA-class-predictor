@@ -103,7 +103,7 @@ predictionsdf_kbl <- predictionsdf[predictionsdf$country %in% neighbouring_cntry
   knitr::kable(col.names = c("ország", "várható mutató az elmúlt 7 nap alapján", "várható besorolás az elmúlt 7 nap alapján",
                              "várható mutató az elmúlt 14 nap alapján", "várható besorolás az elmúlt 14 nap alapján"))
 
-mrkdwn_output <- c(mrkdwn_tmplt[1:3], "", indicators_ytday_df_kbl, mrkdwn_tmplt[3], predictionsdf_kbl)
+mrkdwn_output <- c(mrkdwn_tmplt[1:3], "", indicators_ytday_df_kbl, mrkdwn_tmplt[4], predictionsdf_kbl)
 
 datadir_path <- paste0("data/output/", date_ytday, "/")
 dir.create(datadir_path)
