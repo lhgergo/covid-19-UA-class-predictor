@@ -12,7 +12,7 @@ A következő táblázatokban az Ukrajnával határos államok aktuális és kö
 |33 |Ukraine            | 370.4234|zöld      |
 |49 |Russian Federation | 218.1806|zöld      |
 |53 |Belarus            | 197.7003|zöld      |
-## Az Ukrajnával szomszédos államok számértékei és besorolásai, ha ma lenne az újraosztályozás
+## Következő pénteki jósolt értékek az elmúlt napok trendjének figyelembe vételével
 |   |ország             | várható mutató az elmúlt 7 nap alapján|várható besorolás az elmúlt 7 nap alapján | várható mutató az elmúlt 14 nap alapján|várható besorolás az elmúlt 14 nap alapján |
 |:--|:------------------|--------------------------------------:|:-----------------------------------------|---------------------------------------:|:------------------------------------------|
 |13 |Poland             |                                    861|vörös                                     |                                     812|vörös                                      |
