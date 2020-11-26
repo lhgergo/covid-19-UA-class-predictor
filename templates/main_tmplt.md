@@ -4,7 +4,7 @@ Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszám
 # Az osztályozás alapjául szolgáló képlet
 `((elmúlt 14 nap új esetei összesen)/(ország lakossága))*100000`
 
-# A legfrissebb napi jelentések
+# A legfrissebb napi összefoglalók
 REPORTS
 
 # További linkek
