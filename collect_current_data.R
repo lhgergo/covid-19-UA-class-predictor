@@ -23,24 +23,25 @@ PredictIndicators <- function(n_days) {
   
   last_14_days <- seq((date_ytday-13), (date_ytday), by = "day")
   last_14_days_from_next_recat <- seq((next_recategorization_date-13), (next_recategorization_date), by = "day")
-  days_of_prediction <- seq((date_ytday-(n_days-1)), (date_ytday), by = "day")
   next_days <- seq(date_ytday+1, next_recategorization_date, by = "day")
   
-  last_14_days_from_next_recat <- setdiff(last_14_days_from_next_recat, next_days)
-  
   pbsapply(mutual_countries, function(cntry) {
-    tmpdf <- coviddf[coviddf$Country == cntry, ]
-    tmpdf_pred <- tmpdf[tmpdf$Date_reported %in% days_of_prediction, ]
-    mdl <- lm(New_cases ~ Date_reported, tmpdf_pred)
-    predcnt_til_next_recat <- predict(mdl, newdata = data.frame(Date_reported = next_days)) %>% round()
+    tmpdf <- coviddf[coviddf$Country == cntry, c("Date_reported", "New_cases")]
     
-    # ggplot(data = tmpdf_pred, aes(x = Date_reported, y = New_cases)) + geom_point() + geom_smooth(method = "lm")
+    while(max(tmpdf$Date_reported) <= (next_recategorization_date-1)) {
+      nxtdate <- max(tmpdf$Date_reported) + 1
+      tmpdf <- data.frame(Date_reported = nxtdate,
+                 New_cases = mean(tmpdf$New_cases[tmpdf$Date_reported %in% seq(max(tmpdf$Date_reported) - (n_days-1), max(tmpdf$Date_reported), by = "day")])) %>% 
+        rbind(tmpdf, .)
+    }
+    
+    tmpdf <- tmpdf[tmpdf$Date_reported %in% last_14_days_from_next_recat, ]
     crnt_pop <- populations[cntry]
-    ((sum(tmpdf[tmpdf$Date_reported %in% last_14_days_from_next_recat, "New_cases"], predcnt_til_next_recat)/crnt_pop)*100000) %>% format(digits = 3) %>% as.numeric()
+    ((sum(tmpdf[tmpdf$Date_reported %in% last_14_days_from_next_recat, "New_cases"])/crnt_pop)*100000) %>% format(digits = 3) %>% as.numeric()
   }) 
 }
 
-neighbouring_cntrys<- c("Ukraine", "Slovakia", "Poland", "Belarus", "Russian Federation", "Moldova", "Romania", "Hungary")
+neighbouring_cntrys <- c("Ukraine", "Slovakia", "Poland", "Belarus", "Russian Federation", "Moldova", "Romania", "Hungary")
 
 # downloading data ----------
 date_today <- Sys.time() %>% substr(1, 10) %>% as.Date()
