@@ -1,5 +1,5 @@
 # Bevezető
-Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszámokat felhasználva számolom ki a napi aktuális mérőszámokat, amelyek alapján [Ukrajna Egészségügyi Minisztériuma](https://moz.gov.ua/) minden pénteken az országok besorolását végzi. A táblázatban szereplő értékek minimális mértékben eltérhetnek a hivatalosan közöltektől (a Minisztérium valószínűleg más forrást használ a lakosságszám meghatározásához). Az előrejelzés alapját egyelőre egyszerű lineáris modellek adják, kimenetük csak tájékoztató jellegű!
+Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszámokat felhasználva számolom ki a napi aktuális mérőszámokat, amelyek alapján [Ukrajna Egészségügyi Minisztériuma](https://moz.gov.ua/) minden pénteken az országok besorolását végzi. A táblázatban szereplő értékek minimális mértékben eltérhetnek a hivatalosan közöltektől (a Minisztérium valószínűleg más forrást használ a lakosságszám meghatározásához). Az előrejelzés alapjául az elmúlt *n* nap mozgó átlaga szolgál. Az értékek csupán tájékoztató jellegűek!
 
 # Az osztályozás alapjául szolgáló képlet
 `((elmúlt 14 nap új esetei összesen)/(ország lakossága))*100000`
@@ -34,8 +34,11 @@ Ezen oldalon szabadon elérhető COVID-19 esetszám-adatokat és népességszám
 * [2020-11-21](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/data/output/2020-11-21/report.md)
 * [2020-11-20](https://github.com/lhgergo/covid-19-UA-class-predictor/blob/main/data/output/2020-11-20/report.md)
 
+# Főbb változások
+* 2020-12-19: az eddigi lineáris regresszió-alapú módszer helyett a következő péntekre szóló becslések mozgó átlagok alapján kerülnek kiszámításra.
+
 # További linkek
-* A legfrissebb (2020. november 20.) hivatalos mérőszámok és ország-besorolások az Egészségügyi Minisztérium weboldaláról
+* [A legfrissebb (2020. december 18.) hivatalos mérőszámok és ország-besorolások az Egészségügyi Minisztérium weboldaláról] (https://moz.gov.ua/uploads/5/27746-181220.png)
 
 # Források
 * napi új esetszámok a WHO oldaláról: https://covid19.who.int/WHO-COVID-19-global-data.csv
